@@ -1,0 +1,8 @@
+Autoloader:
+
+    Use notification system of provider to knows when new input comes
+    Use internal db to remember what files are processed
+    Can be configured for schema inference and schema evolution
+
+    SELECT *
+    FROM CLOUD_FILES('path', 'filetype')

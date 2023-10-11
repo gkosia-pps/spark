@@ -1,0 +1,4 @@
+APPLY CHANGES INTO LIVE.<dest table>
+FROM STREAM(Live.source)
+KEYES(primary key columns)
+SEQUENCE BY <changes order column>

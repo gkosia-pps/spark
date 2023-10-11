@@ -1,0 +1,52 @@
+https://www.youtube.com/watch?v=PIFL7W3DmaY
+
+Idea: define dataset and DLT automatically keeps them up to dataset
+
+Streaming tables(streaming live table): 
+    A delta table that has a stream to write to it
+    Read from append only data sources (kafka, auo loader)
+    Guarantee to process each element once 
+
+    Used for:
+        Ingestion
+        Low latency transformations
+        On huge data that need to incrementally updated
+
+
+    Definition:
+
+        CREATE STREAMING TABLE report
+        AS SELECT *
+        FROM some query
+
+    Since structured streaming calculate only new data changes to the past can be applied with full refresh:
+
+        REFRESH report_table FULL
+
+Materialized views(live table):
+
+    The results of a query stored in a delta table
+    Return the results of the query as was the last time updated
+    Can be scheduled to refresh
+
+    Used for:
+
+        Transforming data
+        Building aggregated tables
+        Speed up BI queries and reports
+
+    Defenition:
+
+        CREATE MATERIALIZED VIEW report
+        AS SELECT *
+        FROM some query
+
+
+Expectations: data quality rules
+    
+    CONSTRAINT some_constraint
+    EXPECT (rule)
+    ON VIOLATION DROP/TRACK/ABORT
+
+    Expectations can be specified in Materialized views
+

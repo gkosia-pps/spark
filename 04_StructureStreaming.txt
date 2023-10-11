@@ -1,0 +1,11 @@
+Spark structure streaming: Process data as arrived
+    Input is append only: 
+
+        Files uploaded to a folder
+        Pub/sub (kafka, eventhub, kinesis)
+        Delta tables with delta.appendOnly=true
+
+     Trigger:
+
+        Manual, On a schedule, Continually
+

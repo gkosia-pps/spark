@@ -1,0 +1,12 @@
+** Load files with autoloader in sparksql:
+    SELECT * from read_files('dbfs:/path/to/folder/*')
+
+** Create stream table:    
+    CREATE STREAMING TABLE report
+    AS
+    SELECT * 
+    from STREAM read_files('dbfs:/path/to/folder/*')
+
+** GROUP BY ALL:
+
+    Group by non summarized columns
